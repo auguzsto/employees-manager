@@ -23,7 +23,7 @@ use App\validators\FuncionarioValidator;
             $funcionario->data_nascimento = isset($map['data_nascimento']) ? $map['data_nascimento'] : null;
             $funcionario->endereco_completo = isset( $map['endereco_completo']) ? $map['endereco_completo'] : null;
             $funcionario->email = isset( $map['email']) ? $map['email'] : null;
-            $funcionario->telefone = isset( $map['email']) ? $map['email'] : null;
+            $funcionario->telefone = isset( $map['telefone']) ? $map['telefone'] : null;
             $funcionario->setCpf($map['cpf']);
             $funcionario->setCargo($map['cargo_id']);
 
