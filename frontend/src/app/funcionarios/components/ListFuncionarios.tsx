@@ -49,7 +49,7 @@ const ListFuncionarios = async () => {
                     <td className="p-4">{funcionario.cof}</td>
                     <td className="p-4">{funcionario.email}</td>
                     <td className="p-4">{funcionario.telefone}</td>
-                    <td className="p-4">{cargos(funcionario.cargo_id)}</td>
+                    <td className="p-4">{cargos(funcionario.cargo_id).then(value => value[0].nome)}</td>
                 </tr>
                 ))}
                 
