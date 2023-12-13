@@ -10,8 +10,21 @@ async function _getData() {
 
 }
 
+async function _getCargo(id: number) {
+    const res = await fetch("http://localhost:8000/api/cargos/"+id, {
+        cache: 'no-store'
+    });
+    if(!res.ok) {
+        throw new Error("Falha ao realizar requisição");
+    }
+
+    return res.json();
+
+}
+
 const ListFuncionarios = async () => {
     const funcionarios = await _getData();
+    const cargos = async (id: number) => await _getCargo(id);
 
     return (
         <div>
@@ -36,7 +49,7 @@ const ListFuncionarios = async () => {
                     <td className="p-4">{funcionario.cof}</td>
                     <td className="p-4">{funcionario.email}</td>
                     <td className="p-4">{funcionario.telefone}</td>
-                    <td className="p-4">{funcionario.cargo_id}</td>
+                    <td className="p-4">{cargos(funcionario.cargo_id)}</td>
                 </tr>
                 ))}
                 
