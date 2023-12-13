@@ -1,0 +1,16 @@
+{
+    "name": "app/backend",
+    "description": "Backend",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Augusto",
+            "email": "auguzsto@gmail.com"
+        }
+    ],
+    "require": {}
+}
