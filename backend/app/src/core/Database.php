@@ -98,10 +98,6 @@ class Database {
         try {
             $pdo = $this->con();
             $array = $pdo->query($this->query)->fetchAll(PDO::FETCH_ASSOC);
-            if(empty($array)) {
-                throw new Exception("Não encontrado");
-            }
-
             return $array;
         } catch (Exception $e) {
             throw $e;

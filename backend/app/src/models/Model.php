@@ -6,6 +6,6 @@ namespace App\models;
         
         public int $id;
         public string $created_at;
-        public string $updated_at;
-        public string $deleted_at;
+        public string | null $updated_at;
+        public string | null $deleted_at;
     }

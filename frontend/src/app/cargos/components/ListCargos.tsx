@@ -1,17 +1,8 @@
-async function _getData() {
-    const res = await fetch("http://localhost:8000/api/cargos", {
-        cache: 'no-store'
-    });
-    if(!res.ok) {
-        throw new Error("Falha ao realizar requisição");
-    }
-
-    return res.json();
-
-}
+import Link from "next/link";
+import { getAllCargos } from "../../../../api";
 
 const ListCargos = async () => {
-    const cargos = await _getData();
+    const cargos = await getAllCargos();
 
     return (
         <div>
@@ -30,12 +21,12 @@ const ListCargos = async () => {
                 {cargos.map(cargo => (
                     <tr key={cargo.id} className="bg-card rounded">
                     <td className="p-4">{cargo.id}</td>
-                    <td className="p-4">{cargo.nome}</td>
+                    <td className="p-4"><a href={`/cargos/${cargo.id}`}>{cargo.nome}</a></td>
                     <td className="p-4">{cargo.salario}</td>
                     <td className="p-4">{cargo.created_at}</td>
                     <td className="p-4">{cargo.updated_at}</td>
                     <td className="p-4">{cargo.deleted_at}</td>
-                </tr>
+                    </tr>
                 ))}
                 
             </tbody>
