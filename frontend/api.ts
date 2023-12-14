@@ -21,6 +21,7 @@ export const getCargoById = async (id: number): Promise<ICargo[]> => {
     return cargo;
 }
 
+
 export const addCargo = async (cargo: ICargo): Promise<ICargo> => {
     const res = await fetch(`${baseUrl}/cargos`, {
         mode: 'no-cors',
@@ -41,6 +42,15 @@ export const getAllFuncionarios = async (): Promise<IFuncionario[]> => {
     });
     const funcionarios = request.json();
     return funcionarios;
+}
+
+export const getFuncionarioById = async (id: number): Promise<IFuncionario[]> => {
+    const res = await fetch(`${baseUrl}/funcionarios/${id}`, {
+        cache: "no-cache",
+        mode: "no-cors",
+    });
+    const funcionario = res.json();
+    return funcionario;
 }
 
 export const addFuncionario = async (funcionario: IFuncionario): Promise<IFuncionario> => {

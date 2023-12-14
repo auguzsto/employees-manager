@@ -29,7 +29,13 @@ const ListFuncionarios = async () => {
                     <td className="p-4">{funcionario.cpf}</td>
                     <td className="p-4">{funcionario.email}</td>
                     <td className="p-4">{funcionario.telefone}</td>
-                    <td className="p-4">{cargos(funcionario.cargo_id).then(value => value[0].nome)}</td>
+                    <td className="p-4">{cargos(funcionario.cargo_id).then(
+                        (value) => (
+                            value.map((cargo) => (
+                                cargo.nome
+                            ))
+                        )
+                    )}</td>
                     <td className="p-4">{funcionario.created_at}</td>
                 </tr>
                 ))}

@@ -5,6 +5,7 @@ import { NumericFormat, PatternFormat } from 'react-number-format';
 interface IInpuTextNumber {
     type: string,
     name: string,
+    value?: string | number,
     placeholder: string,
 }
 
@@ -16,6 +17,7 @@ const InputTextNumber = (props: IInpuTextNumber) => {
                     required
                     className='input input-bordered w-full max-w-xs'
                     type="text"
+                    value={props.value}
                     name={props.name}
                     placeholder={props.placeholder}
                     allowLeadingZeros
