@@ -1,17 +1,7 @@
-async function _getData() {
-    const res = await fetch("http://localhost:8000/api/cargos", {
-        cache: 'no-store'
-    });
-    if(!res.ok) {
-        throw new Error("Falha ao realizar requisição");
-    }
-
-    return res.json();
-
-}
+import { getAllCargos } from "../../../../api";
 
 const ListCargos = async () => {
-    const cargos = await _getData();
+    const cargos = await getAllCargos();
 
     return (
         <div>

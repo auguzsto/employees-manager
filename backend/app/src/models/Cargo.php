@@ -13,6 +13,9 @@ use App\validators\CargoValidator;
             
             $cargo->setNome($map['nome']);
             $cargo->salario = $map['salario'];
+            $cargo->created_at = isset($map['created_at']) ? $map['created_at'] : date('Y-m-d H:i:s');
+            $cargo->updated_at = isset($map['updated_at']) ? $map['updated_at'] : null;
+            $cargo->deleted_at = isset($map['deleted_at']) ? $map['deleted_at'] : null;
 
             return $cargo;
         }

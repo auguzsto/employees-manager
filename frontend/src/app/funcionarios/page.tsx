@@ -6,7 +6,12 @@ function FuncionariosPage() {
     return (
       <div>
         <Header/>
-        <div className="p-1 text-2xl"><b>Funcionários</b></div>
+        <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
+            <b>Funcionários</b>
+            <a href="/funcionarios/adicionar">
+              <button className="btn btn-neutral">Adicionar</button>
+            </a>
+          </div>
         <ListFuncionarios/>
      </div>
     );

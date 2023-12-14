@@ -26,6 +26,9 @@ use App\validators\FuncionarioValidator;
             $funcionario->telefone = isset( $map['telefone']) ? $map['telefone'] : null;
             $funcionario->setCpf($map['cpf']);
             $funcionario->setCargo($map['cargo_id']);
+            $funcionario->created_at = isset($map['created_at']) ? $map['created_at'] : date('Y-m-d H:i:s');
+            $funcionario->updated_at = isset($map['updated_at']) ? $map['updated_at'] : null;
+            $funcionario->deleted_at = isset($map['deleted_at']) ? $map['deleted_at'] : null;
 
             return $funcionario;
         }

@@ -1,30 +1,9 @@
-async function _getData() {
-    const res = await fetch("http://localhost:8000/api/funcionarios", {
-        cache: 'no-store'
-    });
-    if(!res.ok) {
-        throw new Error("Falha ao realizar requisição");
-    }
+import { getAllFuncionarios, getCargoById } from "../../../../api";
 
-    return res.json();
-
-}
-
-async function _getCargo(id: number) {
-    const res = await fetch("http://localhost:8000/api/cargos/"+id, {
-        cache: 'no-store'
-    });
-    if(!res.ok) {
-        throw new Error("Falha ao realizar requisição");
-    }
-
-    return res.json();
-
-}
 
 const ListFuncionarios = async () => {
-    const funcionarios = await _getData();
-    const cargos = async (id: number) => await _getCargo(id);
+    const funcionarios = await getAllFuncionarios();
+    const cargos = async (id: number) => await getCargoById(id);
 
     return (
         <div>
@@ -38,6 +17,7 @@ const ListFuncionarios = async () => {
                 <th className="p-4">E-mail</th>
                 <th className="p-4">Telefone</th>
                 <th className="p-4">Cargo</th>
+                <th className="p-4">Criado em</th>
                 </tr>
             </thead>
             <tbody className="">
@@ -46,10 +26,11 @@ const ListFuncionarios = async () => {
                     <td className="p-4">{funcionario.id}</td>
                     <td className="p-4">{funcionario.nome}</td>
                     <td className="p-4">{funcionario.data_nascimento}</td>
-                    <td className="p-4">{funcionario.cof}</td>
+                    <td className="p-4">{funcionario.cpf}</td>
                     <td className="p-4">{funcionario.email}</td>
                     <td className="p-4">{funcionario.telefone}</td>
                     <td className="p-4">{cargos(funcionario.cargo_id).then(value => value[0].nome)}</td>
+                    <td className="p-4">{funcionario.created_at}</td>
                 </tr>
                 ))}
                 
