@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 function Main() {
       return (
       <div>
-        <Header/>
+        <Header title="Início"/>
      </div>
     );
 }

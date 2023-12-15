@@ -35,5 +35,11 @@ use Bramus\Router\Router;
         $router->patch("/{id}", "FuncionarioController@update");
         $router->options("/{id}", "FuncionarioController@delete");
     });
+
+    // Endpoints relatorios
+    $router->mount("/api/relatorios", function() use ($router) {
+        $router->get("/", "RelatorioController@getNomeTelefoneCargoAll");
+        $router->get("/(\w+)", "RelatorioController@getNomeTelefoneCargoByNomeCpf");
+    });
     
     $router->run();

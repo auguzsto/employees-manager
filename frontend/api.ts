@@ -1,5 +1,6 @@
 import ICargo from "@/types/Cargo"
 import IFuncionario from "@/types/Funcionario";
+import IRelatorio from "@/types/Relatorio";
 
 const baseUrl = "http://localhost:8000/api"
 
@@ -118,4 +119,22 @@ export const deleteFuncionario = async (id: number): Promise<void> => {
     });
 
     res;
+}
+
+export const getAllRelatorios = async (): Promise<IRelatorio[]> => {
+    const request = await fetch(`${baseUrl}/relatorios`, {
+        cache: "no-cache",
+        mode: "no-cors",
+    });
+    const relatorios = request.json();
+    return relatorios;
+}
+
+export const getRelatorioByNomeCargo = async (params: string | number): Promise<IRelatorio[]> => {
+    const res = await fetch(`${baseUrl}/relatorios/${params}`, {
+        cache: "no-cache",
+        mode: "no-cors",
+    });
+    
+    return await res.json() as IRelatorio[];
 }
