@@ -6,12 +6,12 @@ import Modal from "@/components/Modal";
 import ICargo from "@/types/Cargo";
 import React, { useState } from "react";
 
-interface IFormUpdateCargo {
+interface IFormAddCargo {
     handler: string | ((formData: FormData) => void)
     cargo: ICargo;
 }
 
-const FormUpdateCargo = (props: IFormUpdateCargo) => {
+const FormAddCargo = (props: IFormAddCargo) => {
     const [modalOpen, setModalOpen] = useState(false)
 
     return (
@@ -32,17 +32,16 @@ const FormUpdateCargo = (props: IFormUpdateCargo) => {
                     <button
                         onClick={() => setModalOpen(true)}
                         className="btn btn-neutral w-full"
-                        type="submit">Atualizar</button>
+                        type="submit">Adicionar</button>
                 </div>
             </form>
-            
+
             <Modal title="Atualização realizada" open={modalOpen} close={() => setModalOpen(false)}> 
                 Atualização nos atributos do cargo foram atualizadas com sucesso.
             </Modal>
+            
         </>
-
-        
     );
 }
 
-export default FormUpdateCargo;
+export default FormAddCargo;
