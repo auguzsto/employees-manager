@@ -34,13 +34,13 @@ const AddFuncionario = async () => {
                     type="text" 
                     name="nome"
                     placeholder="Nome do funcionário" 
-                    className="input input-bordered w-full max-w-xs"
+                    className="input input-bordered w-full mt-2"
                 />
                 <input 
                     type="date" 
                     name="data_nascimento"
                     placeholder="Data de nascimento" 
-                    className="input input-bordered w-full max-w-xs"/>
+                    className="input input-bordered w-full mt-2"/>
                 <InputTextNumber
                     type="cpf"
                     name="cpf"
@@ -50,7 +50,7 @@ const AddFuncionario = async () => {
                     type="text" 
                     name="email"
                     placeholder="Email" 
-                    className="input input-bordered w-full max-w-xs"/>
+                    className="input input-bordered w-full mt-2"/>
                  <InputTextNumber
                     type="telefone"
                     name="telefone"
@@ -59,13 +59,13 @@ const AddFuncionario = async () => {
                 <select 
                     required
                     name="cargo_id"
-                    className="select select-bordered w-full max-w-xs">
+                    className="select select-bordered w-full mt-2">
                     {cargos.map((cargo) => (
                         <option key={cargo.id} value={cargo.id}>{cargo.nome}</option>
                     ))}
                 </select>
                 <button
-                    className="btn btn-neutral"
+                    className="btn btn-neutral w-full mt-2"
                     type="submit">Adicionar</button>
             </form>
         </div>
