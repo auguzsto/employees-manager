@@ -19,7 +19,7 @@
 1. `git clone https://github.com/auguzsto/employees-manager.git`
 2. Abra a pasta do projeto para configurar o banco de dados.
     1. Navegue até o ditório backend/
-    2. Abra o arquivo config.php e ponha os referentes a suas configurações locais.
+    2. Abra o arquivo config.php e ponha suas configurações locais.
 3. Abra a pasta do projeto e execute o terminal.
 4. Com o terminal aberto execute os seguintes comandos.
     1. `cd .\backend\`
