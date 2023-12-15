@@ -1,9 +1,7 @@
 import Header from "@/components/Header";
-import React, { FormEventHandler, useState } from "react";
+import React from "react";
 import { addCargo } from "../../../../api";
 import ICargo from "@/types/Cargo";
-import { InputMask } from '@react-input/mask';
-import InputText from "@/components/InputText";
 import InputTextNumber from "@/components/InputTextNumber";
 
 
@@ -20,7 +18,7 @@ const AddCargo = () => {
 
     return (
         <div>
-            <Header/>
+            <Header title="Cargos"/>
             <div className="p-1 text-2xl"><b>Adicionar cargo</b></div>
             <form action={handleSubmitNewCargo}>
                 <input type="text" 

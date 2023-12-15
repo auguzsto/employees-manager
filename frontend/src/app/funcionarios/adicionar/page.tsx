@@ -26,7 +26,7 @@ const AddFuncionario = async () => {
 
     return (
         <div>
-            <Header/>
+            <Header title="Funcionarios"/>
             <div className="p-1 text-2xl"><b>Adicionar funcionário</b></div>
             <form action={handleSubmitNewFuncionario}>
                 <input

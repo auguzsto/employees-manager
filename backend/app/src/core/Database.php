@@ -70,7 +70,7 @@ class Database {
             $columns = implode(", ", array_keys($columnsAndValues));
             $values = implode(", :", array_keys($columnsAndValues));
             
-            $pdo->prepare("INSERT INTO $table (id, $columns) VALUES (0, :$values)")->execute($columnsAndValues);
+            $pdo->prepare("INSERT INTO $table ($columns) VALUES (:$values)")->execute($columnsAndValues);
 
         } catch (Exception $e) {
             throw $e;
@@ -84,6 +84,18 @@ class Database {
 
             $pdo->prepare("UPDATE $table SET $set = ? WHERE $where")->execute(array_values($columnsAndValues));
             $pdo->prepare("UPDATE $table SET updated_at = ? WHERE $where")->execute([date('Y-m-d H:i:s')]);
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
+    public function delete(array $columnsAndValues, string $table, string $where): void {
+        try {
+            $pdo = $this->con();
+            $set = implode("=?, ", array_keys($columnsAndValues));
+
+            $pdo->prepare("UPDATE $table SET $set = ? WHERE $where")->execute(array_values($columnsAndValues));
+            $pdo->prepare("UPDATE $table SET deleted_at = ? WHERE $where")->execute([date('Y-m-d H:i:s')]);
         } catch (Exception $e) {
             throw $e;
         }

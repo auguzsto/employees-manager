@@ -1,20 +1,28 @@
 'use client'
 
-import { InputMask } from "@react-input/mask";
+import { useState } from "react";
 
 interface IInputText {
     name: string,
+    type?: string,
     placeholder: string,
-    mask?: string
+    value?: string,
 }
 
 const InputText = (props: IInputText) => {
+    const [value, setValue] = useState(`${props.value}`)
+    
+    const handlerOnChange = (e: React.FormEvent<HTMLInputElement>) => {
+        setValue(e.currentTarget.value);
+    }
+    
     return(
-        <InputMask
+        <input
             required
-            mask={props.mask}
-            type="text"
+            type={props.type == null ? "text" : props.type}
             name={props.name}
+            value={value}
+            onChange={handlerOnChange}
             placeholder={props.placeholder}
             className="input input-bordered w-full max-w-xs"
    

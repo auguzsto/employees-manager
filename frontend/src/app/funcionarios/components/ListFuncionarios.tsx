@@ -24,7 +24,7 @@ const ListFuncionarios = async () => {
                 {funcionarios.map(funcionario => (
                     <tr key={funcionario.id} className="bg-card rounded">
                     <td className="p-4">{funcionario.id}</td>
-                    <td className="p-4">{funcionario.nome}</td>
+                    <td className="p-4"><a href={`/funcionarios/${funcionario.id}`}>{funcionario.nome}</a></td>
                     <td className="p-4">{funcionario.data_nascimento}</td>
                     <td className="p-4">{funcionario.cpf}</td>
                     <td className="p-4">{funcionario.email}</td>
