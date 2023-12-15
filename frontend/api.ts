@@ -21,17 +21,28 @@ export const getCargoById = async (id: number): Promise<ICargo[]> => {
     return cargo;
 }
 
+export const getCargoByNome = async (nome: string): Promise<ICargo[]> => {
+    const res = await fetch(`${baseUrl}/cargos/n/${nome}`, {
+        cache: "no-cache",
+        mode: "no-cors",
+    });
+    const cargo = res.json();
+    return cargo;
+}
 
-export const addCargo = async (cargo: ICargo): Promise<ICargo> => {
+
+export const addCargo = async (cargo: ICargo): Promise<void> => {
     const res = await fetch(`${baseUrl}/cargos`, {
         mode: 'no-cors',
+        cache: "no-cache",
         method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(cargo)
-    }).catch((error) => {
-        return error;
     });
 
-    return res;
+    res;
 }
 
 export const updateCargo = async (cargo: ICargo, id: number): Promise<void> => {

@@ -1,10 +1,8 @@
 import Header from "@/components/Header";
 import { getCargoById, updateCargo } from "../../../../api";
-import InputTextNumber from "@/components/InputTextNumber";
 import ICargo from "@/types/Cargo";
-import InputText from "@/components/InputText";
-import Link from "next/link";
 import FormUpdateCargo from "../components/FormUpdateCargo";
+import ButtonDeleteCargo from "../components/ButtonDeleteCargo";
 
 
 const DetailCargo = async ({ params }: { params: { slug: string } }) => {
@@ -26,9 +24,12 @@ const DetailCargo = async ({ params }: { params: { slug: string } }) => {
             <div>
                 <div className="p-1 mt-1 text-3xl flex items-start justify-between w-full">
                 <b>{cargo.nome}</b>
-                <Link href={`/cargos/deletar/${cargo.id}`}>
+                {/* <Link href={`/cargos/deletar/${cargo.id}`}>
                     <button className="btn btn-error text-white">Deletar</button>
-                </Link>
+                </Link> */}
+                <ButtonDeleteCargo
+                    cargo={cargo}
+                />
                 </div>
                 
                 <FormUpdateCargo 

@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 
 interface IInputText {
     name: string,
     type?: string,
     placeholder: string,
-    value?: string,
+    value?: string | number,
+    onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 const InputText = (props: IInputText) => {
@@ -17,16 +18,18 @@ const InputText = (props: IInputText) => {
     }
     
     return(
-        <input
+        <div className="mt-2">
+            <input
             required
             type={props.type == null ? "text" : props.type}
             name={props.name}
             value={value}
             onChange={handlerOnChange}
             placeholder={props.placeholder}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
    
         />
+        </div>
     );
 }
 

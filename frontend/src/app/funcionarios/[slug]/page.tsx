@@ -54,17 +54,23 @@ const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
                     name="telefone"
                     placeholder="Telefone"
                 />
-                <select 
-                    required
-                    name="cargo_id"
-                    className="select select-bordered w-full max-w-xs">
-                    {cargos.map((cargo) => (
-                        <option key={cargo.id} value={funcionario.cargo_id}>{cargo.nome}</option>
-                    ))}
-                </select>
-                <button
-                    className="btn btn-neutral"
-                    type="submit">Atualizar</button>
+                <div className="mt-2">
+                    <select 
+                        required
+                        name="cargo_id"
+                        className="select select-bordered w-full">
+                        {cargos.map((cargo) => (
+                            <option key={cargo.id} value={funcionario.cargo_id}>{cargo.nome}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="mt-2">
+                    <button
+                        className="btn btn-neutral w-full"
+                        type="submit">
+                        Atualizar
+                    </button>
+                </div>
             </form>
             </div>
             

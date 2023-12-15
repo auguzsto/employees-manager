@@ -1,5 +1,6 @@
 'use client'
 
+import { ChangeEventHandler } from 'react';
 import { NumericFormat, PatternFormat } from 'react-number-format';
 
 interface IInpuTextNumber {
@@ -7,15 +8,18 @@ interface IInpuTextNumber {
     name: string,
     value?: string | number,
     placeholder: string,
+    onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 const InputTextNumber = (props: IInpuTextNumber) => {
     switch(props.type) {
         case "salario":
             return (
-                <NumericFormat
+                <div className='mt-2'>
+                    <NumericFormat
                     required
-                    className='input input-bordered w-full max-w-xs'
+                    onChange={props.onChange}
+                    className='input input-bordered w-full'
                     type="text"
                     value={props.value}
                     name={props.name}
@@ -25,30 +29,35 @@ const InputTextNumber = (props: IInpuTextNumber) => {
                     thousandSeparator=","
                     prefix={'R$'} 
                 />
+                </div>
             );
 
         case "cpf":
             return (
-                <PatternFormat
+                <div className='mt-2'>
+                    <PatternFormat
                     required
-                    className='input input-bordered w-full max-w-xs'
+                    className='input input-bordered w-full'
                     format='###.###.###-##'
                     value={props.value}
                     type="text"
                     name={props.name}
                     placeholder={props.placeholder} 
                 />
+                </div>
             )
         case "telefone":
             return (
-                <PatternFormat
-                    className='input input-bordered w-full max-w-xs'
+                <div className='mt-2'>
+                    <PatternFormat
+                    className='input input-bordered w-full'
                     format='(##) # ####-####'
                     type="text"
                     value={props.value}
                     name={props.name}
                     placeholder={props.placeholder} 
                 />
+                </div>
             )
 
     }
