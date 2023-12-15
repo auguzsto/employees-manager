@@ -17,8 +17,7 @@ export const getCargoById = async (id: number): Promise<ICargo[]> => {
         cache: "no-cache",
         mode: "no-cors",
     });
-    const cargo = res.json();
-    return cargo;
+    return await res.json() as ICargo[];
 }
 
 export const getCargoByNome = async (nome: string): Promise<ICargo[]> => {
@@ -73,6 +72,14 @@ export const getAllFuncionarios = async (): Promise<IFuncionario[]> => {
     return funcionarios;
 }
 
+export const getFuncionarioByNome = async (nome: string): Promise<IFuncionario[]> => {
+    const res = await fetch(`${baseUrl}/funcionarios/n/${nome}`, {
+        cache: "no-cache",
+        mode: "no-cors",
+    });
+    return await res.json() as IFuncionario[];
+}
+
 export const getFuncionarioById = async (id: number): Promise<IFuncionario[]> => {
     const res = await fetch(`${baseUrl}/funcionarios/${id}`, {
         cache: "no-cache",
@@ -100,6 +107,15 @@ export const updateFuncionario = async (funcionario: IFuncionario, id: number): 
         method: 'PATCH',
         body: JSON.stringify(funcionario)
     })
+
+    res;
+}
+
+export const deleteFuncionario = async (id: number): Promise<void> => {
+    const res = await fetch(`${baseUrl}/funcionarios/${id}`, {
+        cache: 'no-cache',
+        method: 'DELETE',
+    });
 
     res;
 }

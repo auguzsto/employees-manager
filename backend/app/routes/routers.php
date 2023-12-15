@@ -27,10 +27,13 @@ use Bramus\Router\Router;
     });
 
     // Endpoints funcionarios
-    $router->get("/api/funcionarios", "FuncionarioController@getAll");
-    $router->get("/api/funcionarios/{id}", "FuncionarioController@getById");
-    $router->post("/api/funcionarios", "FuncionarioController@create");
-    $router->patch("/api/funcionarios/{id}", "FuncionarioController@update");
-    $router->options("/api/funcionarios/{id}", "FuncionarioController@delete");
+    $router->mount("/api/funcionarios", function() use ($router) {
+        $router->get("/", "FuncionarioController@getAll");
+        $router->get("/(\d+)", "FuncionarioController@getById");
+        $router->get("/n/(\w+)", "FuncionarioController@getByNome");
+        $router->post("/", "FuncionarioController@create");
+        $router->patch("/{id}", "FuncionarioController@update");
+        $router->options("/{id}", "FuncionarioController@delete");
+    });
     
     $router->run();
