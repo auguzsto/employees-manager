@@ -16,10 +16,10 @@ const ListRelatoriosByNomeCargo = async ({ params }: { params: { slug: string } 
             </thead>
             <tbody className="">
                 {relatorios.map(relatorios => (
-                    <tr key={relatorios.id_funcionario} className="bg-card rounded">
-                    <td className="p-4"><a href={`/funcionarios/${relatorios.id_funcionario}`}>{relatorios.nome_funcionario}</a></td>
+                    <tr key={relatorios.funcionario_id} className="bg-card rounded">
+                    <td className="p-4"><a href={`/funcionarios/${relatorios.funcionario_id}`}>{relatorios.nome_funcionario}</a></td>
                     <td className="p-4">{relatorios.telefone}</td>
-                    <td className="p-4"><a href={`/cargos/${relatorios.id_cargo}`}>{relatorios.nome_cargo}</a></td>
+                    <td className="p-4"><a href={`/cargos/${relatorios.cargo_id}`}>{relatorios.nome_cargo}</a></td>
                     <td className="p-4">{relatorios.salario}</td>
 
                 </tr>
