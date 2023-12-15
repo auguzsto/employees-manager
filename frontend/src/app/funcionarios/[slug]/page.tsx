@@ -3,6 +3,7 @@ import { getAllCargos, getFuncionarioById, updateFuncionario } from "../../../..
 import InputTextNumber from "@/components/InputTextNumber";
 import IFuncionario from "@/types/Funcionario";
 import InputText from "@/components/InputText";
+import ButtonDeleteFuncionario from "../components/ButtonDeleteFuncionario";
 
 
 const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
@@ -26,52 +27,57 @@ const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
         <>
             <Header title="Funcionarios"/>
             <div className="mt-5">
-               <p className="text-4xl font-bold">{funcionario.nome}</p>
+            <div className="p-1 mt-1 text-3xl flex items-start justify-between w-full">
+                <p className="text-4xl font-bold">{funcionario.nome}</p>
+                <ButtonDeleteFuncionario
+                    funcionario={funcionario}
+                />
+            </div>
                <form action={handlerSubmitUpdateFuncionario}>
-                <InputText
-                    value={funcionario.nome}
-                    name="nome"
-                    placeholder="Nome do funcionário"
-                />
-                <InputText 
-                    type="date"
-                    value={funcionario.data_nascimento}
-                    name="data_nascimento"
-                    placeholder="Data de nascimento"/>
-                <InputTextNumber
-                    value={funcionario.cpf}
-                    type="cpf"
-                    name="cpf"
-                    placeholder="CPF"
-                />
-                <InputText
-                    value={funcionario.email}
-                    name="email"
-                    placeholder="Email"/>
-                 <InputTextNumber
-                    value={funcionario.telefone}
-                    type="telefone"
-                    name="telefone"
-                    placeholder="Telefone"
-                />
-                <div className="mt-2">
-                    <select 
-                        required
-                        name="cargo_id"
-                        className="select select-bordered w-full">
-                        {cargos.map((cargo) => (
-                            <option key={cargo.id} value={funcionario.cargo_id}>{cargo.nome}</option>
-                        ))}
-                    </select>
-                </div>
-                <div className="mt-2">
-                    <button
-                        className="btn btn-neutral w-full"
-                        type="submit">
-                        Atualizar
-                    </button>
-                </div>
-            </form>
+                    <InputText
+                        value={funcionario.nome}
+                        name="nome"
+                        placeholder="Nome do funcionário"
+                    />
+                    <InputText 
+                        type="date"
+                        value={funcionario.data_nascimento}
+                        name="data_nascimento"
+                        placeholder="Data de nascimento"/>
+                    <InputTextNumber
+                        value={funcionario.cpf}
+                        type="cpf"
+                        name="cpf"
+                        placeholder="CPF"
+                    />
+                    <InputText
+                        value={funcionario.email}
+                        name="email"
+                        placeholder="Email"/>
+                    <InputTextNumber
+                        value={funcionario.telefone}
+                        type="telefone"
+                        name="telefone"
+                        placeholder="Telefone"
+                    />
+                    <div className="mt-2">
+                        <select 
+                            required
+                            name="cargo_id"
+                            className="select select-bordered w-full">
+                            {cargos.map((cargo) => (
+                                <option key={cargo.id} value={funcionario.cargo_id}>{cargo.nome}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="mt-2">
+                        <button
+                            className="btn btn-neutral w-full"
+                            type="submit">
+                            Atualizar
+                        </button>
+                    </div>
+                </form>
             </div>
             
         </>
