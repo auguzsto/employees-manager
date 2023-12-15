@@ -20,10 +20,22 @@ use App\core\Database;
             }
         }
 
-        static public function getById(int $id) {
+        public function getById(int $id) {
             try {
                 $db = Database::getInstace();
                 $data = $db->select("*", "cargos")->where("id = $id")->toArray();
+                echo json_encode($data);
+            } catch (Exception $e) {
+                header('HTTP/1.1 400 Bad Request');
+                echo json_encode(["error"=> $e->getMessage()]);
+                throw $e;
+            }
+        }
+
+        public function getByNome(string $nome) {
+            try {
+                $db = Database::getInstace();
+                $data = $db->select("*", "cargos")->where("nome")->like("$nome")->toArray();
                 echo json_encode($data);
             } catch (Exception $e) {
                 header('HTTP/1.1 400 Bad Request');

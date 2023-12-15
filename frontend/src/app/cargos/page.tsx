@@ -2,27 +2,25 @@ import Header from "@/components/Header";
 import React from "react";
 import ListCargos from "./components/ListCargos";
 import Link from 'next/link'
-import InputText from "@/components/InputText";
+import ButtonSearchCargo from "./components/ButtonSearchCargo";
 
-function CargosPage() {
+const CargosPage = () => {
 
-    return (
-        <div>
-          <Header title="Cargos"/>
-          <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
-            <b>Cargos</b>
-            <InputText 
-              name="nome"
-              placeholder="Procure pelo nome do cargo"
-              value=""
-            />
+  return (
+      <div>
+        <Header title="Cargos"/>
+        <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
+          <b>Cargos</b>
+          <div>
+            <ButtonSearchCargo  />
             <Link href="/cargos/adicionar">
-              <button className="btn btn-neutral">Adicionar</button>
+              <button className="btn btn-neutral ml-2">Adicionar</button>
             </Link>
-          </div>
-          <ListCargos />
-       </div>
-      );
+          </div> 
+        </div>
+        <ListCargos />
+      </div>
+    );
   }
 
 

@@ -1,7 +1,7 @@
-import { getAllCargos } from "../../../../api";
+import { getCargoByNome } from "../../../../api";
 
-const ListCargos = async () => {
-    const cargos = await getAllCargos();
+const ListCargosByNome = async ({ params }: { params: { slug: string } }) => {
+    const cargos = await getCargoByNome(params.slug);
 
     return (
         <div>
@@ -32,4 +32,4 @@ const ListCargos = async () => {
     );
 }
 
-export default ListCargos;
+export default ListCargosByNome;
