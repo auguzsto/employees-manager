@@ -41,11 +41,10 @@ class Database {
             global $config;
             $host = $config['host'];
             $port = $config['port'];
-            $dbname = $config['database'];
             $dbuser = $config['user'];
             $dbpassword = $config['password'];
 
-            $pdo = new PDO("mysql:host=$host:$port;dbname=$dbname", "$dbuser", "$dbpassword");
+            $pdo = new PDO("mysql:host=$host:$port;dbname=backend_assim", "$dbuser", "$dbpassword");
             return $pdo;
             
         } catch (Exception $e) {
