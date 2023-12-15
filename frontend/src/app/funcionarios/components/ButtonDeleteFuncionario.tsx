@@ -3,7 +3,7 @@
 import Modal from "@/components/Modal";
 import ICargo from "@/types/Cargo";
 import React, { FormEventHandler, useState } from "react";
-import { deleteCargo } from "../../../../api";
+import { deleteCargo, deleteFuncionario } from "../../../../api";
 import { useRouter } from "next/navigation";
 import IFuncionario from "@/types/Funcionario";
 
@@ -23,7 +23,7 @@ const ButtonDeleteFuncionario = (props: IButtonDeleteFuncionario) => {
            let error = document.getElementById('error');
            return error!.innerHTML = "Nome inválido."
         }
-        await deleteCargo(props.funcionario.id!);
+        await deleteFuncionario(props.funcionario.id!);
         setModal(false)
         router.push("/funcionarios");
     }
