@@ -33,6 +33,7 @@ const InputTextNumber = (props: IInpuTextNumber) => {
                     required
                     className='input input-bordered w-full max-w-xs'
                     format='###.###.###-##'
+                    value={props.value}
                     type="text"
                     name={props.name}
                     placeholder={props.placeholder} 
@@ -44,6 +45,7 @@ const InputTextNumber = (props: IInpuTextNumber) => {
                     className='input input-bordered w-full max-w-xs'
                     format='(##) # ####-####'
                     type="text"
+                    value={props.value}
                     name={props.name}
                     placeholder={props.placeholder} 
                 />

@@ -14,7 +14,6 @@ const ListCargos = async () => {
                 <th className="p-4">Salário</th>
                 <th className="p-4">Criado em</th>
                 <th className="p-4">Atualizado em</th>
-                <th className="p-4">Deletado em</th>
                 </tr>
             </thead>
             <tbody className="">
@@ -25,7 +24,6 @@ const ListCargos = async () => {
                     <td className="p-4">{cargo.salario}</td>
                     <td className="p-4">{cargo.created_at}</td>
                     <td className="p-4">{cargo.updated_at}</td>
-                    <td className="p-4">{cargo.deleted_at}</td>
                     </tr>
                 ))}
                 

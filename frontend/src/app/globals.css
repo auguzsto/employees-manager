@@ -16,6 +16,10 @@
   }
 }
 
+nextjs-portal {
+  display: none;
+}
+
 body {
   background-color: whitesmoke;
   padding: 5rem;

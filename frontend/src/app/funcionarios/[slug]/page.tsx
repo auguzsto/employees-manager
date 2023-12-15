@@ -1,45 +1,53 @@
 import Header from "@/components/Header";
-import { getAllCargos, getCargoById, getFuncionarioById } from "../../../../api";
+import { getAllCargos, getFuncionarioById, updateFuncionario } from "../../../../api";
 import InputTextNumber from "@/components/InputTextNumber";
+import IFuncionario from "@/types/Funcionario";
+import InputText from "@/components/InputText";
 
 
 const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
     const funcionarios = await getFuncionarioById(Number.parseInt(params.slug));
-    const funcionario = funcionarios[0];
+    let funcionario = funcionarios[0];
     const cargos = await getAllCargos();
+
+    const handlerSubmitUpdateFuncionario = async (fromData: FormData) => {
+        'use server'
+        const rawFormData = {
+            nome: fromData.get('nome'),
+            data_nascimento: fromData.get('data_nascimento'),
+            cpf: fromData.get('cpf'),
+            email: fromData.get('email'),
+            telefone: fromData.get('telefone'),
+        }
+        await updateFuncionario(rawFormData as IFuncionario, Number.parseInt(params.slug));
+    }
 
     return (
         <>
-            <Header/>
+            <Header title="Funcionarios"/>
             <div className="mt-5">
                <p className="text-4xl font-bold">{funcionario.nome}</p>
-               <form>
-                <input
-                    required
-                    type="text"
+               <form action={handlerSubmitUpdateFuncionario}>
+                <InputText
                     value={funcionario.nome}
                     name="nome"
-                    placeholder="Nome do funcionário" 
-                    className="input input-bordered w-full max-w-xs"
+                    placeholder="Nome do funcionário"
                 />
-                <input 
+                <InputText 
                     type="date"
                     value={funcionario.data_nascimento}
                     name="data_nascimento"
-                    placeholder="Data de nascimento" 
-                    className="input input-bordered w-full max-w-xs"/>
+                    placeholder="Data de nascimento"/>
                 <InputTextNumber
                     value={funcionario.cpf}
                     type="cpf"
                     name="cpf"
                     placeholder="CPF"
                 />
-                <input
+                <InputText
                     value={funcionario.email}
-                    type="text" 
                     name="email"
-                    placeholder="Email" 
-                    className="input input-bordered w-full max-w-xs"/>
+                    placeholder="Email"/>
                  <InputTextNumber
                     value={funcionario.telefone}
                     type="telefone"
@@ -56,7 +64,7 @@ const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
                 </select>
                 <button
                     className="btn btn-neutral"
-                    type="submit">Adicionar</button>
+                    type="submit">Atualizar</button>
             </form>
             </div>
             

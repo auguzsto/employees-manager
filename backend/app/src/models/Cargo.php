@@ -10,7 +10,7 @@ use App\validators\CargoValidator;
 
         static public function fromMap(array $map): Cargo {
             $cargo = new self();
-            
+            $cargo->id = isset($map['id']) ? $map['id'] : 0;
             $cargo->setNome($map['nome']);
             $cargo->salario = $map['salario'];
             $cargo->created_at = isset($map['created_at']) ? $map['created_at'] : date('Y-m-d H:i:s');

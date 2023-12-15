@@ -18,7 +18,7 @@ use App\validators\FuncionarioValidator;
 
         static public function fromMap(array $map): Funcionario {
             $funcionario = new self();
-
+            $funcionario->id = isset($map['id']) ? $map['id'] : 0;
             $funcionario->setNome($map['nome']);
             $funcionario->data_nascimento = isset($map['data_nascimento']) ? $map['data_nascimento'] : null;
             $funcionario->endereco_completo = isset( $map['endereco_completo']) ? $map['endereco_completo'] : null;

@@ -34,6 +34,24 @@ export const addCargo = async (cargo: ICargo): Promise<ICargo> => {
     return res;
 }
 
+export const updateCargo = async (cargo: ICargo, id: number): Promise<void> => {
+    const res = await fetch(`${baseUrl}/cargos/${id}`, {
+        cache: 'no-cache',
+        method: 'PATCH',
+        body: JSON.stringify(cargo)
+    })
+
+    res;
+}
+
+export const deleteCargo = async (id: number): Promise<void> => {
+    const res = await fetch(`${baseUrl}/cargos/${id}`, {
+        cache: 'no-cache',
+        method: 'DELETE',
+    });
+
+    res;
+}
 
 export const getAllFuncionarios = async (): Promise<IFuncionario[]> => {
     const request = await fetch(`${baseUrl}/funcionarios`, {
@@ -63,4 +81,14 @@ export const addFuncionario = async (funcionario: IFuncionario): Promise<IFuncio
     });
 
     return res;
+}
+
+export const updateFuncionario = async (funcionario: IFuncionario, id: number): Promise<void> => {
+    const res = await fetch(`${baseUrl}/funcionarios/${id}`, {
+        cache: 'no-cache',
+        method: 'PATCH',
+        body: JSON.stringify(funcionario)
+    })
+
+    res;
 }
