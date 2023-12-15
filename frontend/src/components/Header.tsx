@@ -12,6 +12,7 @@ const Header = (props: IHeader) => {
                 <a href="/" className="mr-5">Início</a>
                 <a href="/cargos" className="mr-5">Cargos</a>
                 <a href="/funcionarios" className="mr-5">Funcionários</a>
+                <a href="/relatorios" className="mr-5">Relatórios</a>
             </div>
         </header>
     );
