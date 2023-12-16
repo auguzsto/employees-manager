@@ -4,6 +4,17 @@ import IRelatorio from "@/types/Relatorio";
 
 const baseUrl = "http://localhost:8000/api"
 
+export const initSchemaDatabase = async (): Promise<void> => {
+    try {
+        await fetch('http://localhost:8000/', {
+            mode: "no-cors",
+            cache: "no-cache"
+        });
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const getAllCargos = async (): Promise<ICargo[]> => {
     const res = await fetch(`${baseUrl}/cargos`, {
         cache: "no-cache",
