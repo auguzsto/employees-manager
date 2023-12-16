@@ -1,9 +1,8 @@
 import Header from "@/components/Header";
 import { getAllCargos, getFuncionarioById, updateFuncionario } from "../../../../api";
-import InputTextNumber from "@/components/InputTextNumber";
 import IFuncionario from "@/types/Funcionario";
-import InputText from "@/components/InputText";
 import ButtonDeleteFuncionario from "../components/ButtonDeleteFuncionario";
+import FormUpdateFuncionario from "../components/FormUpdateFuncionario";
 
 
 const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
@@ -16,9 +15,11 @@ const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
         const rawFormData = {
             nome: fromData.get('nome'),
             data_nascimento: fromData.get('data_nascimento'),
+            endereco_completo: fromData.get('endereco_completo'),
             cpf: fromData.get('cpf'),
             email: fromData.get('email'),
             telefone: fromData.get('telefone'),
+            cargo_id: fromData.get('cargo_id')!.valueOf()
         }
         await updateFuncionario(rawFormData as IFuncionario, Number.parseInt(params.slug));
     }
@@ -33,51 +34,11 @@ const DetailFuncionario = async ({ params }: { params: { slug: string } }) => {
                     funcionario={funcionario}
                 />
             </div>
-               <form action={handlerSubmitUpdateFuncionario}>
-                    <InputText
-                        value={funcionario.nome}
-                        name="nome"
-                        placeholder="Nome do funcionário"
-                    />
-                    <InputText 
-                        type="date"
-                        value={funcionario.data_nascimento}
-                        name="data_nascimento"
-                        placeholder="Data de nascimento"/>
-                    <InputTextNumber
-                        value={funcionario.cpf}
-                        type="cpf"
-                        name="cpf"
-                        placeholder="CPF"
-                    />
-                    <InputText
-                        value={funcionario.email}
-                        name="email"
-                        placeholder="Email"/>
-                    <InputTextNumber
-                        value={funcionario.telefone}
-                        type="telefone"
-                        name="telefone"
-                        placeholder="Telefone"
-                    />
-                    <div className="mt-2">
-                        <select 
-                            required
-                            name="cargo_id"
-                            className="select select-bordered w-full">
-                            {cargos.map((cargo) => (
-                                <option key={cargo.id} value={funcionario.cargo_id}>{cargo.nome}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="mt-2">
-                        <button
-                            className="btn btn-neutral w-full"
-                            type="submit">
-                            Atualizar
-                        </button>
-                    </div>
-                </form>
+               <FormUpdateFuncionario 
+                    cargos={cargos}
+                    funcionario={funcionario}
+                    handler={handlerSubmitUpdateFuncionario}
+               />
             </div>
             
         </>
