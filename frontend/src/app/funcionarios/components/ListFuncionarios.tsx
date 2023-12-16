@@ -17,7 +17,7 @@ const ListFuncionarios = async () => {
                 <th className="p-4">E-mail</th>
                 <th className="p-4">Telefone</th>
                 <th className="p-4">Cargo</th>
-                <th className="p-4">Criado em</th>
+                <th className="p-4">Atualizado em</th>
                 </tr>
             </thead>
             <tbody className="">
@@ -36,7 +36,7 @@ const ListFuncionarios = async () => {
                             ))
                         )
                     )}</td>
-                    <td className="p-4">{funcionario.created_at}</td>
+                    <td className="p-4">{funcionario.updated_at}</td>
                 </tr>
                 ))}
                 
