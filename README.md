@@ -33,7 +33,6 @@ C:\xampp\php\php.exe -S 0.0.0.0:8000 -t .
 ```
 5. Deixe o terminal aberto e siga as instruções para executar o frontend
 
-6. http://localhost:8000/ - **ATENÇÃO:** Necessário abrir a URL do backend, pelo menos, uma vez para garantir a migração do schema do banco de dados.
 ### Executando o frontend
 1. Abra a pasta do projeto e execute o terminal
 2. Com o terminal aberto execute os seguintes comandos

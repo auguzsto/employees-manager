@@ -4,6 +4,17 @@ import IRelatorio from "@/types/Relatorio";
 
 const baseUrl = "http://localhost:8000/api"
 
+export const initSchemaDatabase = async (): Promise<void> => {
+    try {
+        await fetch('http://localhost:8000/', {
+            
+            cache: "no-cache"
+        });
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const getAllCargos = async (): Promise<ICargo[]> => {
     const res = await fetch(`${baseUrl}/cargos`, {
         cache: "no-cache",
@@ -16,7 +27,7 @@ export const getAllCargos = async (): Promise<ICargo[]> => {
 export const getCargoById = async (id: number): Promise<ICargo[]> => {
     const res = await fetch(`${baseUrl}/cargos/${id}`, {
         cache: "no-cache",
-        mode: "no-cors",
+        
     });
     return await res.json() as ICargo[];
 }
@@ -24,7 +35,7 @@ export const getCargoById = async (id: number): Promise<ICargo[]> => {
 export const getCargoByNome = async (nome: string): Promise<ICargo[]> => {
     const res = await fetch(`${baseUrl}/cargos/n/${nome}`, {
         cache: "no-cache",
-        mode: "no-cors",
+        
     });
     const cargo = res.json();
     return cargo;
@@ -67,7 +78,7 @@ export const deleteCargo = async (id: number): Promise<void> => {
 export const getAllFuncionarios = async (): Promise<IFuncionario[]> => {
     const request = await fetch(`${baseUrl}/funcionarios`, {
         cache: "no-cache",
-        mode: "no-cors",
+        
     });
     const funcionarios = request.json();
     return funcionarios;
@@ -76,7 +87,7 @@ export const getAllFuncionarios = async (): Promise<IFuncionario[]> => {
 export const getFuncionarioByNome = async (nome: string): Promise<IFuncionario[]> => {
     const res = await fetch(`${baseUrl}/funcionarios/n/${nome}`, {
         cache: "no-cache",
-        mode: "no-cors",
+        
     });
     return await res.json() as IFuncionario[];
 }
@@ -84,7 +95,7 @@ export const getFuncionarioByNome = async (nome: string): Promise<IFuncionario[]
 export const getFuncionarioById = async (id: number): Promise<IFuncionario[]> => {
     const res = await fetch(`${baseUrl}/funcionarios/${id}`, {
         cache: "no-cache",
-        mode: "no-cors",
+        
     });
     const funcionario = res.json();
     return funcionario;
@@ -124,7 +135,7 @@ export const deleteFuncionario = async (id: number): Promise<void> => {
 export const getAllRelatorios = async (): Promise<IRelatorio[]> => {
     const request = await fetch(`${baseUrl}/relatorios`, {
         cache: "no-cache",
-        mode: "no-cors",
+        
     });
     const relatorios = request.json();
     return relatorios;
@@ -133,8 +144,30 @@ export const getAllRelatorios = async (): Promise<IRelatorio[]> => {
 export const getRelatorioByNomeCargo = async (params: string | number): Promise<IRelatorio[]> => {
     const res = await fetch(`${baseUrl}/relatorios/${params}`, {
         cache: "no-cache",
-        mode: "no-cors",
     });
     
     return await res.json() as IRelatorio[];
+}
+
+export const hasAlreadyCpf = async (params: string): Promise<boolean> => {
+    try {
+        const handlerParams = params.replaceAll(".", "").replaceAll("-", "");
+        const result = await fetch(`${baseUrl}/funcionarios/cpf/${handlerParams}`, {
+            headers: {
+                "User-Agent": "Google Chrome"
+            },
+            cache: "no-cache"
+        });
+
+        if(result.status == 404) {
+            return false;
+        }
+
+        return true;
+
+        
+
+    } catch (error) {
+        throw error;
+    }
 }

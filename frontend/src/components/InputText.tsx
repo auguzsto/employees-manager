@@ -3,6 +3,8 @@
 import { ChangeEventHandler, useState } from "react";
 
 interface IInputText {
+    id?: string,
+    ref?: string,
     name: string,
     type?: string,
     placeholder: string,
@@ -21,6 +23,7 @@ const InputText = (props: IInputText) => {
         <div className="mt-2">
             <input
             required
+            id={props.id}
             type={props.type == null ? "text" : props.type}
             name={props.name}
             value={value}

@@ -4,7 +4,7 @@ import InputText from "@/components/InputText";
 import InputTextNumber from "@/components/InputTextNumber";
 import Modal from "@/components/Modal";
 import ICargo from "@/types/Cargo";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 interface IFormAddCargo {
     handler: string | ((formData: FormData) => void)
@@ -14,15 +14,18 @@ interface IFormAddCargo {
 const FormAddCargo = (props: IFormAddCargo) => {
     const [modalOpen, setModalOpen] = useState(false)
 
+    
+    
     return (
         <>
-            <form action={props.handler}>
+            <form action={props.handler} onChange={(e) => e}>
                 <InputText
                     name="nome"
                     value={props.cargo.nome}
                     placeholder="Nome do cargo"
                 />
                 <InputTextNumber
+                    id="salario"
                     value={props.cargo.salario}
                     type="salario"
                     name="salario"
@@ -30,7 +33,6 @@ const FormAddCargo = (props: IFormAddCargo) => {
                 />
                 <div className="mt-2">
                     <button
-                        onClick={() => setModalOpen(true)}
                         className="btn btn-neutral w-full"
                         type="submit">Adicionar</button>
                 </div>

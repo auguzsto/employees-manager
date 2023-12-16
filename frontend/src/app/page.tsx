@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
+import { initSchemaDatabase } from "../../api";
 
-function Main() {
+async function Main() {
+      await initSchemaDatabase();
       return (
       <div>
         <Header title="Início"/>
