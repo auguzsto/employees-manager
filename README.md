@@ -16,24 +16,40 @@
 
 ### Executando o backend
 
-1. `git clone https://github.com/auguzsto/employees-manager.git`
+1. Clone o repositório.
+```
+git clone https://github.com/auguzsto/employees-manager.git
+```
 2. Abra a pasta do projeto para configurar o banco de dados.
     1. Navegue até o ditório backend/
-    2. Abra o arquivo config.php e ponha suas configurações locais.
+    2. Abra o arquivo **config.php** e ponha suas configurações locais.
 3. Abra a pasta do projeto e execute o terminal.
 4. Com o terminal aberto execute os seguintes comandos.
-    1. `cd .\backend\`
-    2. ` C:\xampp\php\php.exe -S 0.0.0.0:8000 -t .`
-    3. Deixe o terminal aberto e siga as instruções para executar o frontend
-5. http://localhost:8000/
+```
+cd .\backend\ 
+```
+``` 
+C:\xampp\php\php.exe -S 0.0.0.0:8000 -t .
+```
+5. Deixe o terminal aberto e siga as instruções para executar o frontend
+
+6. http://localhost:8000/ - **ATENÇÃO:** Necessário abrir a URL do backend, pelo menos, uma vez para garantir a migração do schema do banco de dados.
 ### Executando o frontend
 1. Abra a pasta do projeto e execute o terminal
 2. Com o terminal aberto execute os seguintes comandos
-    1. `cd .\frontend\`
-    2. `npm install`
-    3. `npm run build`
-    4. `npm run start`
-    5. Deixe o terminal aberto.
-3. http://localhost:300/
+```
+cd .\frontend\
+```
+```
+npm install
+```
+```
+npm run build
+```
+```
+npm run start
+```
+3. Deixe o terminal aberto.
+5. http://localhost:300/
 
     
