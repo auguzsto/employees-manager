@@ -25,7 +25,7 @@ git clone https://github.com/auguzsto/employees-manager.git
 3. Abra o arquivo **config.php** e ponha suas configurações locais.
 
 ### Executando o frontend
-1. Abra a pasta do projeto, vá até o diretório ``frontend``
+1. Abra a pasta do projeto, ``a qual você clonou``, vá até o diretório ``frontend``
 2. Dentro do diretório, abra o terminal e execute os seguintes comandos.
 ```
 npm install
