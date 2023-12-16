@@ -38,6 +38,6 @@ npm run build
 npm run start
 ```
 3. Deixe o terminal aberto.
-5. http://localhost:300/
+5. http://localhost:3000/
 
     
