@@ -3,7 +3,13 @@
 use Bramus\Router\Router;
 
     $router = new Router();
+    
     header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
+    header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Type');
+    header('Access-Control-Max-Age: 86400');
+
     
     // Index
     $router->get('/', function () {
@@ -31,6 +37,7 @@ use Bramus\Router\Router;
         $router->get("/", "FuncionarioController@getAll");
         $router->get("/(\d+)", "FuncionarioController@getById");
         $router->get("/n/(\w+)", "FuncionarioController@getByNome");
+        $router->get("/cpf/(.*)", "FuncionarioController@checkHasAlreadyCpf");
         $router->post("/", "FuncionarioController@create");
         $router->patch("/{id}", "FuncionarioController@update");
         $router->options("/{id}", "FuncionarioController@delete");

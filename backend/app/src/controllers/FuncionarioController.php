@@ -45,6 +45,27 @@ use Exception;
             }
         }
 
+        public function checkHasAlreadyCpf(string $cpf) {
+            try {
+                $handlerCpf = vsprintf("%s%s%s.%s%s%s.%s%s%s-%s%s", str_split($cpf));
+                $db = Database::getInstace();
+                $data = $db->select("cpf", "funcionarios")->where("cpf = '$handlerCpf'")->toArray();
+                if(empty($data)){
+                    throw new Exception('Não encontrado');
+                }
+
+                echo json_encode($data);
+                return header('HTTP/1.1 200 OK');
+
+                
+                
+            } catch (Exception $e) {
+                header('HTTP/1.1 404 Not Found');
+                echo json_encode(["error"=> $e->getMessage()]);
+                throw $e;
+            }
+        }
+
         public function create(): void {
             try {
                 $db = Database::getInstace();

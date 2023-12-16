@@ -9,7 +9,7 @@ use App\core\Database;
         public function getNomeTelefoneCargoAll() {
             try {
                 $db = Database::getInstace();
-                $data = $db->query("select f.id as funcionario_id, c.id as cargo_id, f.nome AS nome_funcionario, f.telefone , c.nome AS nome_cargo, c.salario FROM cargos c, funcionarios f where f.nome like '%Matheus%' or c.nome like '%a'GROUP BY f.nome;")->fetchAll(PDO::FETCH_ASSOC);
+                $data = $db->query("select f.id as funcionario_id, c.id as cargo_id, f.nome AS nome_funcionario, f.telefone , c.nome AS nome_cargo, c.salario FROM cargos c, funcionarios f GROUP BY f.nome;")->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($data);
             } catch (Exception $e) {
                 header('HTTP/1.1 400 Bad Request');
