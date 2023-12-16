@@ -22,7 +22,7 @@ git clone https://github.com/auguzsto/employees-manager.git
 ```
 1. Abra a pasta do projeto, copie a pasta **backend** para a raíz do htdocs do Xampp ``C:\xampp\htdocs``
 2. Abra a pasta do backend, ``C:\xampp\htdocs\backend``, para configurar o banco de dados.
-    2. Abra o arquivo **config.php** e ponha suas configurações locais.
+3. Abra o arquivo **config.php** e ponha suas configurações locais.
 
 ### Executando o frontend
 1. Abra a pasta do projeto, vá até o diretório ``frontend``
