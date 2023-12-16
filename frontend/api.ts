@@ -2,11 +2,11 @@ import ICargo from "@/types/Cargo"
 import IFuncionario from "@/types/Funcionario";
 import IRelatorio from "@/types/Relatorio";
 
-const baseUrl = "http://localhost:8000/api"
+const baseUrl = "http://localhost/backend/api"
 
 export const initSchemaDatabase = async (): Promise<void> => {
     try {
-        await fetch('http://localhost:8000/', {
+        await fetch('http://localhost/backend', {
             
             cache: "no-cache"
         });

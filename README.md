@@ -20,25 +20,13 @@
 ```
 git clone https://github.com/auguzsto/employees-manager.git
 ```
-2. Abra a pasta do projeto para configurar o banco de dados.
-    1. Navegue até o ditório backend/
+1. Abra a pasta do projeto, copie a pasta **backend** para a raíz do htdocs do Xampp ``C:\xampp\htdocs``
+2. Abra a pasta do backend, ``C:\xampp\htdocs\backend``, para configurar o banco de dados.
     2. Abra o arquivo **config.php** e ponha suas configurações locais.
-3. Abra a pasta do projeto e execute o terminal.
-4. Com o terminal aberto execute os seguintes comandos.
-```
-cd .\backend\ 
-```
-``` 
-C:\xampp\php\php.exe -S 0.0.0.0:8000 -t .
-```
-5. Deixe o terminal aberto e siga as instruções para executar o frontend
 
 ### Executando o frontend
-1. Abra a pasta do projeto e execute o terminal
-2. Com o terminal aberto execute os seguintes comandos
-```
-cd .\frontend\
-```
+1. Abra a pasta do projeto, vá até o diretório ``frontend``
+2. Dentro do diretório, abra o terminal e execute os seguintes comandos.
 ```
 npm install
 ```
