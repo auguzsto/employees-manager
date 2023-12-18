@@ -17,7 +17,10 @@ const ButtonSearchRelatorio = (props: IButtonSearchRelatorio) => {
 
     const handlerSearchFuncionario: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        router.push(`/relatorios/buscar/${nomeCargoFuncionario}`);
+        if(nomeCargoFuncionario == "" || nomeCargoFuncionario == " ") {
+            return;
+        }
+        router.push(`/relatorios/buscar/${nomeCargoFuncionario.replace(RegExp(" "), "%20")}`);
     }
 
     const handlerModalOpen = () => {
@@ -37,6 +40,7 @@ const ButtonSearchRelatorio = (props: IButtonSearchRelatorio) => {
                 <form onSubmit={handlerSearchFuncionario}>
                     <div className="modal-action">
                         <input
+                            required
                             className="input input-bordered w-full"
                             name="nome"
                             placeholder="Digite cargo ou nome do funcionário"

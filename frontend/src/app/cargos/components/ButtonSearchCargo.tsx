@@ -40,6 +40,7 @@ const ButtonSearchCargo = (props: IButtonSearchCargo) => {
                 <form onSubmit={handlerSearchCargo}>
                     <div className="modal-action">
                         <input
+                            required
                             className="input input-bordered w-full"
                             name="nome"
                             placeholder="Confirme digitando o nome do cargo"

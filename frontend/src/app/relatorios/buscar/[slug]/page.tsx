@@ -4,10 +4,10 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import ListRelatoriosByNomeCargo from "../../components/ListRelatoriosByNomeCargo";
 import ButtonSearchRelatorio from "../../components/ButtonSearchRelatorio";
-const BuscarFuncionarios = async ({ params }: { params: { slug: string } }) => {
+const BuscarRelatorio = async ({ params }: { params: { slug: string } }) => {
     return (
         <>
-            <Header title={`Busca de cargo ${params.slug}`}/>
+            <Header title={`Busca de relatórios ${params.slug}`}/>
             <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
             <b>Relatórios</b>
             <div>
@@ -19,4 +19,4 @@ const BuscarFuncionarios = async ({ params }: { params: { slug: string } }) => {
     );
 }
 
-export default BuscarFuncionarios;
+export default BuscarRelatorio;
