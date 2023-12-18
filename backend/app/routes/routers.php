@@ -26,7 +26,7 @@ use Bramus\Router\Router;
     $router->mount("/api/cargos", function() use ($router) {
         $router->get("/", "CargoController@getAll");
         $router->get("/(\d+)", "CargoController@getById");
-        $router->get("/n/(\w+)", "CargoController@getByNome");
+        $router->get("/n/(.*)", "CargoController@getByNome");
         $router->post("/", "CargoController@create");
         $router->patch("/{id}", "CargoController@update");
         $router->options("/{id}", "CargoController@delete");
@@ -36,7 +36,7 @@ use Bramus\Router\Router;
     $router->mount("/api/funcionarios", function() use ($router) {
         $router->get("/", "FuncionarioController@getAll");
         $router->get("/(\d+)", "FuncionarioController@getById");
-        $router->get("/n/(\w+)", "FuncionarioController@getByNome");
+        $router->get("/n/(.*)", "FuncionarioController@getByNome");
         $router->get("/cpf/(.*)", "FuncionarioController@checkHasAlreadyCpf");
         $router->post("/", "FuncionarioController@create");
         $router->patch("/{id}", "FuncionarioController@update");
@@ -46,7 +46,7 @@ use Bramus\Router\Router;
     // Endpoints relatorios
     $router->mount("/api/relatorios", function() use ($router) {
         $router->get("/", "RelatorioController@getNomeTelefoneCargoAll");
-        $router->get("/(\w+)", "RelatorioController@getNomeTelefoneCargoByNomeCpf");
+        $router->get("/(.*)", "RelatorioController@getNomeTelefoneCargoByNomeCpf");
     });
     
     $router->run();
