@@ -9,7 +9,10 @@ function FuncionariosPage() {
       <div>
         <Header title="Funcionarios"/>
         <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
-            <b>Funcionários</b>
+            <div>
+              <b>Funcionários</b>
+              <p className="text-sm font-bold">Para detalhes clique no nome do funcionário</p>
+            </div>
             <div>
             <ButtonSearchFuncionario />
             <Link href="/funcionarios/adicionar">

@@ -20,6 +20,7 @@ const FormUpdateFuncionario = (props: IFormUpdateFuncionario) => {
     const [modalOpen, setModalOpen] = useState(false)
     const [successCpf, setSuccessCpf] = useState('');
     const [isDisableButton, setIsDisableButton] = useState(false);
+    const [cargoId, setCargoId] = useState(props.funcionario.cargo_id.toString());
 
     const router = useRouter();
 
@@ -91,7 +92,8 @@ const FormUpdateFuncionario = (props: IFormUpdateFuncionario) => {
                 <select 
                     required
                     name="cargo_id"
-                    value={props.funcionario.cargo_id}
+                    onChange={(e) => setCargoId(e.target.value)}
+                    value={cargoId}
                     className="select select-bordered w-full mt-2">
                     {props.cargos.map((cargo) => (
                         <option key={cargo.id} value={cargo.id}>{cargo.nome}</option>
