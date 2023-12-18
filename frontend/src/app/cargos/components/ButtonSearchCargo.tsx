@@ -17,7 +17,10 @@ const ButtonSearchCargo = (props: IButtonSearchCargo) => {
 
     const handlerSearchCargo: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        router.push(`/cargos/buscar/${nomeCargo}`);
+        if(nomeCargo == "" || nomeCargo == " ") {
+            return;
+        }
+        router.push(`/cargos/buscar/${nomeCargo.replace(RegExp(" "), "%20")}`);
     }
 
     const handlerModalOpen = () => {
