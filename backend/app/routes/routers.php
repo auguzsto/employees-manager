@@ -7,9 +7,8 @@ use Bramus\Router\Router;
     header('Content-Type: application/json');
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
-    header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Type');
+    header('Access-Control-Allow-Headers: *');
     header('Access-Control-Max-Age: 86400');
-
     
     // Index
     $router->get('/', function () {
