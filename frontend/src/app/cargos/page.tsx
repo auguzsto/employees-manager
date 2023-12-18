@@ -10,7 +10,10 @@ const CargosPage = () => {
       <div>
         <Header title="Cargos"/>
         <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
-          <b>Cargos</b>
+          <div>
+            <b>Cargos</b>
+            <p className="text-sm font-bold">Para detalhes clique no nome do cargo</p>
+          </div>
           <div>
             <ButtonSearchCargo  />
             <Link href="/cargos/adicionar">

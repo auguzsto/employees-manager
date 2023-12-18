@@ -9,7 +9,10 @@ function RelatoriosPage() {
       <div>
         <Header title="Relatório"/>
         <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
-            <b>Relatório</b>
+            <div>
+              <b>Relatório</b>
+              <p className="text-sm font-bold">Para detalhes clique no nome do funcionário ou cargo</p>
+            </div>
             <div>
             <ButtonSearchRelatorio/>
           </div> 
