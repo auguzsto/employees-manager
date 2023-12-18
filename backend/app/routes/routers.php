@@ -7,9 +7,8 @@ use Bramus\Router\Router;
     header('Content-Type: application/json');
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
-    header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Type');
+    header('Access-Control-Allow-Headers: *');
     header('Access-Control-Max-Age: 86400');
-
     
     // Index
     $router->get('/', function () {
@@ -26,7 +25,7 @@ use Bramus\Router\Router;
     $router->mount("/api/cargos", function() use ($router) {
         $router->get("/", "CargoController@getAll");
         $router->get("/(\d+)", "CargoController@getById");
-        $router->get("/n/(\w+)", "CargoController@getByNome");
+        $router->get("/n/(.*)", "CargoController@getByNome");
         $router->post("/", "CargoController@create");
         $router->patch("/{id}", "CargoController@update");
         $router->options("/{id}", "CargoController@delete");
@@ -36,7 +35,7 @@ use Bramus\Router\Router;
     $router->mount("/api/funcionarios", function() use ($router) {
         $router->get("/", "FuncionarioController@getAll");
         $router->get("/(\d+)", "FuncionarioController@getById");
-        $router->get("/n/(\w+)", "FuncionarioController@getByNome");
+        $router->get("/n/(.*)", "FuncionarioController@getByNome");
         $router->get("/cpf/(.*)", "FuncionarioController@checkHasAlreadyCpf");
         $router->post("/", "FuncionarioController@create");
         $router->patch("/{id}", "FuncionarioController@update");
@@ -46,7 +45,7 @@ use Bramus\Router\Router;
     // Endpoints relatorios
     $router->mount("/api/relatorios", function() use ($router) {
         $router->get("/", "RelatorioController@getNomeTelefoneCargoAll");
-        $router->get("/(\w+)", "RelatorioController@getNomeTelefoneCargoByNomeCpf");
+        $router->get("/(.*)", "RelatorioController@getNomeTelefoneCargoByNomeCpf");
     });
     
     $router->run();

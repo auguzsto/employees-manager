@@ -17,7 +17,10 @@ const ButtonSearchCargo = (props: IButtonSearchCargo) => {
 
     const handlerSearchCargo: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        router.push(`/cargos/buscar/${nomeCargo}`);
+        if(nomeCargo == "" || nomeCargo == " ") {
+            return;
+        }
+        router.push(`/cargos/buscar/${nomeCargo.replace(RegExp(" "), "%20")}`);
     }
 
     const handlerModalOpen = () => {
@@ -37,6 +40,7 @@ const ButtonSearchCargo = (props: IButtonSearchCargo) => {
                 <form onSubmit={handlerSearchCargo}>
                     <div className="modal-action">
                         <input
+                            required
                             className="input input-bordered w-full"
                             name="nome"
                             placeholder="Confirme digitando o nome do cargo"

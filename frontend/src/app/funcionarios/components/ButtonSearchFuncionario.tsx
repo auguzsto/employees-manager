@@ -17,7 +17,10 @@ const ButtonSearchFuncionario = (props: IButtonSearchFuncionario) => {
 
     const handlerSearchFuncionario: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        router.push(`/funcionarios/buscar/${nomeFuncionario}`);
+        if(nomeFuncionario == "" || nomeFuncionario == " ") {
+            return;
+        }
+        router.push(`/funcionarios/buscar/${nomeFuncionario.replace(RegExp(" "), "%20")}`);
     }
 
     const handlerModalOpen = () => {
@@ -37,6 +40,7 @@ const ButtonSearchFuncionario = (props: IButtonSearchFuncionario) => {
                 <form onSubmit={handlerSearchFuncionario}>
                     <div className="modal-action">
                         <input
+                            required
                             className="input input-bordered w-full"
                             name="nome"
                             placeholder="Confirme digitando o nome do funcionário"
