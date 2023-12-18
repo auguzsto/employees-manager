@@ -7,4 +7,4 @@ use App\core\Migration;
 
     error_reporting(0); // SET 0 FOR PROD, SET -1 FOR DEVELOPEMENT
     date_default_timezone_set("America/Sao_Paulo"); // DEFAULT CONFIG HOURS
-    Migration::auto("15122023_1834.sql");
+    Migration::auto("16122023_0513.sql");
