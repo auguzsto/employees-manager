@@ -1,7 +1,6 @@
 'use client'
 
 import Modal from "@/components/Modal";
-import ICargo from "@/types/Cargo";
 import React, { FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -20,7 +19,7 @@ const ButtonSearchFuncionario = (props: IButtonSearchFuncionario) => {
         if(nomeFuncionario == "" || nomeFuncionario == " ") {
             return;
         }
-        router.push(`/funcionarios/buscar/${nomeFuncionario.replace(RegExp(" "), "%20")}`);
+        router.push(`/funcionarios/buscar/${nomeFuncionario.replace(RegExp(" "), "_")}`)
     }
 
     const handlerModalOpen = () => {

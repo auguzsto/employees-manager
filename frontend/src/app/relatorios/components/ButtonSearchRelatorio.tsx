@@ -20,7 +20,7 @@ const ButtonSearchRelatorio = (props: IButtonSearchRelatorio) => {
         if(nomeCargoFuncionario == "" || nomeCargoFuncionario == " ") {
             return;
         }
-        router.push(`/relatorios/buscar/${nomeCargoFuncionario.replace(RegExp(" "), "%20")}`);
+        router.push(`/relatorios/buscar/${nomeCargoFuncionario.replace(RegExp(" "), "_")}`);
     }
 
     const handlerModalOpen = () => {
