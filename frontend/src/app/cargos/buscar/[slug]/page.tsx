@@ -8,7 +8,7 @@ import ListCargosByNome from "../../components/ListCargosByNome";
 const BuscarCargos = async ({ params }: { params: { slug: string } }) => {
     return (
         <>
-            <Header title={`Busca de cargo ${params.slug}`}/>
+            <Header title={`Busca de cargo ${params.slug.replace("_", " ")}`}/>
             <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
             <b>Cargos</b>
             <div>

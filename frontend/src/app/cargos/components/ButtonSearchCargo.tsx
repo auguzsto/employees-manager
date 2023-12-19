@@ -20,7 +20,7 @@ const ButtonSearchCargo = (props: IButtonSearchCargo) => {
         if(nomeCargo == "" || nomeCargo == " ") {
             return;
         }
-        router.push(`/cargos/buscar/${nomeCargo.replace(RegExp(" "), "%20")}`);
+        router.push(`/cargos/buscar/${nomeCargo.replace(RegExp(" "), "_")}`);
     }
 
     const handlerModalOpen = () => {

@@ -87,8 +87,8 @@ export const getAllFuncionarios = async (): Promise<IFuncionario[]> => {
 export const getFuncionarioByNome = async (nome: string): Promise<IFuncionario[]> => {
     const res = await fetch(`${baseUrl}/funcionarios/n/${nome}`, {
         cache: "no-cache",
-        
     });
+    
     return await res.json() as IFuncionario[];
 }
 

@@ -7,7 +7,7 @@ import ButtonSearchRelatorio from "../../components/ButtonSearchRelatorio";
 const BuscarRelatorio = async ({ params }: { params: { slug: string } }) => {
     return (
         <>
-            <Header title={`Busca de relatórios ${params.slug}`}/>
+            <Header title={`Busca de relatórios ${params.slug.replace("_", " ")}`}/>
             <div className="p-1 mt-1 text-2xl flex items-start justify-between w-full">
             <b>Relatórios</b>
             <div>
